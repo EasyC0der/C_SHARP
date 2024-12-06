@@ -1,32 +1,22 @@
-int[,] array = new int[4, 8];
+int[,] array = new int[,]{
+    { 0, 1, -2, -3, 4 },
+    { 0, 1, 2, 3, 4 },
+    { 0, 1, -2, 3, -4 },
+    { 0, 1, 2, 3, 4 },
+    { 0, -1, 2, 3, 4 }
+};
+int Result = 0;
 
-
-// Заполнение
-for (int i = 0; i < 4; i++)
+for (int i = 0; i < 5; i++)
 {
-    for (int j = 0; j < 8; j++)
+    for (int j = 0; j < 5; j++)
     {
-        array[i, j] = i + j;
-    }
-}
-
-// Подсчеты
-for (int i = 0; i < 4; i++)
-{
-    for (int j = 0; j < 8; j++)
-    {
-        if (i % 2 == 0 && j % 2 == 0)
+        if ( array[i, j] % 2 == 0 && array[i, j] > 0)
         {
-            // Пример переменных, которые могли бы быть определены ранее
-            int i_temp = array[i, j]; // Значение из массива для i
-            int j_temp = array[i, j]; // Вы можете изменить это в соответствии с вашей логикой
-
-            // Сумма значений
-            int result = j_temp + i_temp;
-            // Выводим результат
-            Console.WriteLine($"Сумма элементов для индексов ({i}, {j}): {result}");
+            Result = Result + array[i, j];
+            
         }
-        Console.WriteLine();
     }
 }
-// Я не знаю как это работает, но это работает !!! Fedor
+
+Console.WriteLine(Result);
